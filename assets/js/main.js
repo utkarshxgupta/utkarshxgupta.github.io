@@ -1,131 +1,97 @@
-/*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-function sendEmail() {
-    const sub = document.getElementById('contact_subject').value;
-    const msg = document.getElementById('contact_msg').value;
-    if (sub == "" && msg == "") return;
-    console.log("subject : " + sub + "\nmsg : " + msg);
-    document.location.href = "mailto:gutkarsh20@iitk.ac.in?subject=" + encodeURIComponent(sub) + "&body=" + encodeURIComponent(msg);
-}
-document.getElementById('contact_submit').addEventListener('click', sendEmail);
+(function () {
+  //===== Prealoder
 
-(function($) {
+  window.onload = function () {
+    window.setTimeout(fadeout, 500);
+  };
 
-	var	$window = $(window),
-		$body = $('body'),
-		$main = $('#main');
+  function fadeout() {
+    document.querySelector(".preloader").style.opacity = "0";
+    document.querySelector(".preloader").style.display = "none";
+  }
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ]
-		});
+  /*=====================================
+    Sticky
+    ======================================= */
+  window.onscroll = function () {
+    const header_navbar = document.querySelector(".navbar-area");
+    const sticky = header_navbar.offsetTop;
+    const logo = document.querySelector(".navbar-brand img");
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+    if (window.pageYOffset > sticky) {
+      header_navbar.classList.add("sticky");
+      logo.src = "assets/img/New folder/Logo blue.png";
+    } else {
+      header_navbar.classList.remove("sticky");
+      logo.src = "assets/img/New folder/UG logo.png";
+    }
 
-	// Nav.
-		var $nav = $('#nav');
+    // show or hide the back-top-top button
+    const backToTo = document.querySelector(".scroll-top");
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
+      backToTo.style.display = "flex";
+    } else {
+      backToTo.style.display = "none";
+    }
+  };
 
-		if ($nav.length > 0) {
+  // for menu scroll
+  const pageLink = document.querySelectorAll(".page-scroll");
 
-			// Shrink effect.
-				$main
-					.scrollex({
-						mode: 'top',
-						enter: function() {
-							$nav.addClass('alt');
-						},
-						leave: function() {
-							$nav.removeClass('alt');
-						},
-					});
+  pageLink.forEach((elem) => {
+    elem.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(elem.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+        offsetTop: 1 - 60,
+      });
+    });
+  });
 
-			// Links.
-				var $nav_a = $nav.find('a');
+  // section menu active
+  function onScroll(event) {
+    const sections = document.querySelectorAll(".page-scroll");
+    const scrollPos =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop;
 
-				$nav_a
-					.scrolly({
-						speed: 1000,
-						offset: function() { return $nav.height(); }
-					})
-					.on('click', function() {
+    for (let i = 0; i < sections.length; i++) {
+      const currLink = sections[i];
+      const val = currLink.getAttribute("href");
+      const refElement = document.querySelector(val);
+      const scrollTopMinus = scrollPos + 73;
+      if (
+        refElement.offsetTop <= scrollTopMinus &&
+        refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+      ) {
+        document.querySelector(".page-scroll").classList.remove("active");
+        currLink.classList.add("active");
+      } else {
+        currLink.classList.remove("active");
+      }
+    }
+  }
 
-						var $this = $(this);
+  window.document.addEventListener("scroll", onScroll);
 
-						// External link? Bail.
-							if ($this.attr('href').charAt(0) != '#')
-								return;
+  //===== close navbar-collapse when a  clicked
+  let navbarToggler = document.querySelector(".navbar-toggler");
+  const navbarCollapse = document.querySelector(".navbar-collapse");
 
-						// Deactivate all links.
-							$nav_a
-								.removeClass('active')
-								.removeClass('active-locked');
+  document.querySelectorAll(".page-scroll").forEach((e) =>
+    e.addEventListener("click", () => {
+      navbarToggler.classList.remove("active");
+      navbarCollapse.classList.remove("show");
+    })
+  );
+  navbarToggler.addEventListener("click", function () {
+    navbarToggler.classList.toggle("active");
+  });
 
-						// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-							$this
-								.addClass('active')
-								.addClass('active-locked');
-
-					})
-					.each(function() {
-
-						var	$this = $(this),
-							id = $this.attr('href'),
-							$section = $(id);
-
-						// No section for this link? Bail.
-							if ($section.length < 1)
-								return;
-
-						// Scrollex.
-							$section.scrollex({
-								mode: 'middle',
-								initialize: function() {
-
-									// Deactivate section.
-										if (browser.canUse('transition'))
-											$section.addClass('inactive');
-
-								},
-								enter: function() {
-
-									// Activate section.
-										$section.removeClass('inactive');
-
-									// No locked links? Deactivate all links and activate this section's one.
-										if ($nav_a.filter('.active-locked').length == 0) {
-
-											$nav_a.removeClass('active');
-											$this.addClass('active');
-
-										}
-
-									// Otherwise, if this section's link is the one that's locked, unlock it.
-										else if ($this.hasClass('active-locked'))
-											$this.removeClass('active-locked');
-
-								}
-							});
-
-					});
-
-		}
-
-	// Scrolly.
-		$('.scrolly').scrolly({
-			speed: 1000
-		});
-
-})(jQuery);
+  // WOW active
+  new WOW().init();
+})();
