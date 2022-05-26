@@ -1,0 +1,449 @@
+    .logo {
+        width: 37.5px;
+        height: 24px;
+        padding: 0 5px;
+    }
+    
+    .heading {
+        font-size: 20px;
+        font-weight: medium;
+        padding: 0 5px;
+        color: #5864FF;
+    }
+    
+    .heading a {
+        text-decoration: none;
+    }
+    
+    .heading a:visited {
+        color: #5864FF;
+    }
+    
+    nav {
+        font-family: Poppins;
+        top: 0;
+        position: sticky;
+        background-color: rgba(255, 255, 255, 0.69);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        z-index: 10;
+    }
+    
+    nav ul {
+        list-style: none;
+        justify-content: space-between;
+    }
+    
+    nav ul li {
+        display: inline-block;
+    }
+    
+    @media only screen and (min-width: 768px) {
+        nav ul li a {
+            position: relative;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            color: black;
+        }
+        nav ul li a:before {
+            display: inline-block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: 7px;
+            left: 0;
+            background-color: #5864FF;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        nav ul li a:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        nav ul li a {
+            display: none;
+        }
+    }
+    
+    nav ul li i {
+        margin: 0 0 0 15px;
+    }
+    
+    nav ul li i:hover {
+        color: #5864FF;
+    }
+    
+    .head-text {
+        font-size: 5vw;
+        font-family: Poppins;
+        font-weight: 600;
+        color: black;
+    }
+    
+    .disp-text {
+        font-size: 3vw;
+        font-family: Poppins;
+        font-weight: 300;
+        color: black;
+    }
+    
+    @media only screen and (min-width: 950px) {
+        .head-text {
+            font-size: 50px;
+            font-family: Poppins;
+            font-weight: 600;
+            color: black;
+        }
+        .disp-text {
+            font-size: 30px;
+            font-family: Poppins;
+            font-weight: 300;
+            color: black;
+        }
+        .icon {
+            margin: 20px 30px 20px 0;
+            text-decoration: none;
+            color: black;
+        }
+        .icon:visited {
+            text-decoration: none;
+            color: black;
+        }
+        .dp {
+            width: 275px;
+            border-radius: 100%;
+        }
+    }
+    
+    .dp {
+        width: 27.5vw;
+        border-radius: 100%;
+    }
+    
+    .intro {
+        flex-wrap: wrap-reverse;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .dp {
+            width: 50vw;
+            margin: 0px auto 10px auto;
+        }
+        .texticons {
+            margin: 10px auto;
+            text-align: center;
+        }
+        .head-text {
+            font-size: 6.5vw;
+        }
+        .disp-text {
+            font-size: 4vw;
+        }
+    }
+    
+    .collapsible {
+        font-family: Poppins;
+        font-weight: 500;
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 3.75vw;
+    }
+    
+    .active,
+    .collapsible:hover {
+        background-color: #ebebeb;
+    }
+    
+    .content {
+        font-family: 'Be Vietnam', 'Inter', sans-serif;
+        padding: 10px 18px 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+        margin-top: -15px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    .icon {
+        margin: 20px 1.5vw;
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .icon {
+            margin: 20px 3vw 20px 0;
+        }
+    }
+    
+    .icon:hover {
+        color: #5864FF;
+    }
+    
+    .sec-heading {
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 35px;
+        color: black;
+        margin: 20px 0;
+    }
+    
+    section {
+        margin: 60px 0 20px 0;
+    }
+    
+    .shadow-box {
+        background-color: rgba(245, 245, 245, 0.8);
+        border-radius: 20px;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.25);
+    }
+    
+    .box-full {
+        padding: 30px 50px;
+    }
+    
+    .para-text {
+        font-family: 'Be Vietnam', 'Inter', sans-serif;
+        font-size: 20px;
+    }
+    
+    @media only screen and (min-width: 1200px) {
+        .project {
+            padding: 20px;
+            width: 420px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .proj-cont {
+            flex-wrap: wrap;
+        }
+        .project {
+            padding: 20px;
+            width: 90%;
+        }
+        .cobot {
+            margin-bottom: 60px;
+        }
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .project {
+            padding: 20px;
+            width: 40%;
+        }
+    }
+    
+    .project img {
+        width: 100%;
+        margin: 0 auto;
+        justify-items: center;
+    }
+    
+    .proj-name {
+        font-family: Poppins;
+        font-size: 25px;
+        font-weight: 500;
+        text-align: center;
+        margin: 10px auto;
+        width: auto;
+    }
+    
+    .proj-desc {
+        font-family: 'Be Vietnam', 'Inter', sans-serif;
+        font-size: 16px;
+        margin: 10px;
+        width: auto;
+    }
+    
+    .btn {
+        background-color: #5864FF;
+        color: white;
+        font-family: Poppins;
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .btnmod {
+        margin-top: 20px;
+        justify-content: center;
+    }
+    
+    .btn:hover {
+        background-color: #7d85ff;
+    }
+    
+    .work {
+        padding: 20px;
+        margin: 30px 0;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .workhide {
+            display: none;
+        }
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .workmob {
+            display: none;
+        }
+    }
+    
+    .workpic img {
+        width: 125px;
+    }
+    
+    .work-head {
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 25px;
+        margin: 0 30px;
+    }
+    
+    .work-desc {
+        font-family: 'Be Vietnam', 'Inter', sans-serif;
+        font-size: 18px;
+        margin: 0 10px;
+    }
+    
+    .bgimg {
+        background-image: url("/assets/Component\ 1.svg");
+        background-repeat: no-repeat;
+        background-position: center top;
+        height: 500px;
+    }
+    
+    .last-heading {
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 35px;
+        color: white;
+        margin: 20px 0;
+        padding-top: 75px;
+    }
+    
+    @media only screen and (min-width: 768px) {
+        nav-mob {
+            display: none;
+        }
+    }
+    
+    .menu {
+        margin: 0 auto;
+        position: sticky;
+        bottom: 20px;
+        height: 14vw;
+        width: 70%;
+        background-color: #5864FF;
+        border-radius: 10px;
+    }
+    
+    .mob-menu {
+        padding: 5px 0;
+        list-style: none;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .mob-menu li {
+        display: inline-block;
+    }
+    
+    .mob-menu li a i {
+        color: white;
+    }
+    
+    .mob-menu li a {
+        padding: 0 10px 0 0;
+    }
+    
+    .btn-group button {
+        height: 64px;
+        background-color: #f3f3f3;
+        /* Green background */
+        border: none;
+        /* Green border */
+        color: rgb(0, 0, 0);
+        /* White text */
+        padding: 12px 24px;
+        /* Some padding */
+        cursor: pointer;
+        /* Pointer/hand icon */
+        float: left;
+        /* Float the buttons side by side */
+        font-size: 28px;
+        width: 20%;
+    }
+    /* Clear floats (clearfix hack) */
+    
+    .btn-group a {
+        text-decoration: none;
+    }
+    
+    .btn-group a:visited {
+        text-decoration: none;
+    }
+    
+    .btn-group a:hover {
+        color: white;
+    }
+    
+    .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    .btn-group button:hover {
+        background-color: #5864FF;
+        color: white;
+    }
+    
+    .cont {
+        font-family: 'Be Vietnam', 'Inter', sans-serif;
+        font-size: 18px;
+        width: 40%;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .cont {
+            width: 100%;
+        }
+    }
+    
+    .cont a:link {
+        color: #5864FF;
+    }
+    /* visited link */
+    
+    .cont a:visited {
+        color: #5864FF;
+    }
+    
+    footer {
+        font-family: 'Be Vietnam', 'Inter', sans-serif;
+        font-size: 15px;
+        color: #9d9d9d;
+        text-align: center;
+    }
+    
+    .contactt {
+        flex-wrap: wrap;
+    }

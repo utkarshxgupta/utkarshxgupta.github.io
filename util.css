@@ -1,0 +1,40 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    padding: 0 220px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .container {
+        padding: 0 150px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+.item-center {
+    align-items: center;
+}
+
+.space-bet {
+    justify-content: space-between;
+}
+
+.space-ar {
+    justify-content: space-around;
+}
+
+.nav-fix {
+    position: relative;
+    top: -50px;
+}
