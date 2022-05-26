@@ -232,6 +232,13 @@
         font-size: 20px;
     }
     
+    @media only screen and (max-width: 768px) {
+        .para-text {
+            font-family: 'Be Vietnam', 'Inter', sans-serif;
+            font-size: 16px;
+        }
+    }
+    
     @media only screen and (min-width: 1200px) {
         .project {
             padding: 20px;
@@ -361,7 +368,7 @@
         margin: 0 auto;
         position: sticky;
         bottom: 20px;
-        height: 14vw;
+        height: 16vw;
         width: 85%;
         background-color: #5864FF;
         border-radius: 10px;
@@ -394,7 +401,7 @@
         /* Green border */
         color: rgb(0, 0, 0);
         /* White text */
-        padding: 12px 24px;
+        padding: 12px 20px;
         /* Some padding */
         cursor: pointer;
         /* Pointer/hand icon */
