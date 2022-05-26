@@ -179,11 +179,23 @@
     
     .icon {
         margin: 20px 1.5vw;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .icon:visited {
+        text-decoration: none;
+        color: black;
     }
     
     @media only screen and (min-width: 768px) {
         .icon {
             margin: 20px 3vw 20px 0;
+            color: black;
+        }
+        .icon:visited {
+            text-decoration: none;
+            color: black;
         }
     }
     
@@ -350,7 +362,7 @@
         position: sticky;
         bottom: 20px;
         height: 14vw;
-        width: 70%;
+        width: 85%;
         background-color: #5864FF;
         border-radius: 10px;
     }
@@ -358,7 +370,7 @@
     .mob-menu {
         padding: 5px 0;
         list-style: none;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 100%;
     }
     

@@ -22,6 +22,12 @@ html {
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
 .item-center {
     align-items: center;
 }
